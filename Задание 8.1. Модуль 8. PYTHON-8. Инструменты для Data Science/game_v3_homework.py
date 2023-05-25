@@ -4,33 +4,26 @@
 
 import numpy as np
 
-"""Сначала устанавливаем любое random число, а потом уменьшаем
-или увеличиваем его в зависимости от того, больше оно или меньше нужного.
-    Функция принимает загаданное число и возвращает число попыток
-       
-Args:
-    number (int, optional): Загаданное число. Defaults to 1.
-
-Returns:
-    int: Число попыток
-"""
-
 number = np.random.randint(1, 101)
 
+# Изачально предполагаем середину интервала [1: 101], равную 50, это наша первая попытка.
 count = 1
 predict = 50
     
 while True:
+    # Если предполагаемое число меньше загаданного, сокращаем интервал с шагом 1/2, пока не "перешагнем" его.
     if number > predict:
         while number > predict:
             count += 1
             difference = (100-predict) // 2
             predict += difference
+        # Как только перешагнули, идем обратно с шагом 1
         if number < predict:
             while number < predict:
                 count += 1
                 predict -= 1
-             
+    
+    # Логика, обратная предыдущему пункту, для случая, когда загаданное меньше предполагаемого.         
     elif number < predict:
         while number < predict:
             count += 1
@@ -39,7 +32,8 @@ while True:
             while number > predict:
                 count += 1
                 predict += 1
-                
+    
+    # Нашли число, вышли из цикла с указанием затраченных попыток.            
     else:
         print(f"Вы угадали число! Это число = {number}, за {count} попыток")
-        break #конец игры выход из цикла    
+        break   
