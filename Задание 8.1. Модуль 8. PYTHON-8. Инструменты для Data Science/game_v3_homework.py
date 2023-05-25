@@ -24,7 +24,7 @@ while True:
     if number > predict:
         while number > predict:
             count += 1
-            difference = (100 - predict)//2
+            difference = (100-predict) // 2
             predict += difference
         if number < predict:
             while number < predict:
@@ -34,7 +34,7 @@ while True:
     elif number < predict:
         while number < predict:
             count += 1
-            predict -= predict//2
+            predict -= predict // 2
         if number > predict:
             while number > predict:
                 count += 1
