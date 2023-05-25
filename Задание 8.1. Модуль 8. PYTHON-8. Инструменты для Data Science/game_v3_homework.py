@@ -17,22 +17,28 @@ Returns:
 
 number = np.random.randint(1, 101)
 
-count = 0
+count = 1
 #predict = np.random.randint(1, 101)
 predict = 50
     
 while True:
-    count += 1
     if number > predict:
         while number > predict:
-            predict += predict/2
-            if number < predict:
+            count += 1
+            difference = (100 - predict)//2
+            predict += difference
+        if number < predict:
+            while number < predict:
+                count += 1
                 predict -= 1
              
     elif number < predict:
         while number < predict:
-            predict -= predict/2
-            if number > predict:
+            count += 1
+            predict -= predict//2
+        if number > predict:
+            while number > predict:
+                count += 1
                 predict += 1
                 
     else:
