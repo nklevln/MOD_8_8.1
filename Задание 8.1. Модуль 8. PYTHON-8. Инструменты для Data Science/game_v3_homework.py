@@ -18,7 +18,6 @@ Returns:
 number = np.random.randint(1, 101)
 
 count = 1
-#predict = np.random.randint(1, 101)
 predict = 50
     
 while True:
@@ -43,9 +42,4 @@ while True:
                 
     else:
         print(f"Вы угадали число! Это число = {number}, за {count} попыток")
-        break #конец игры выход из цикла
-        
-    #return count
-    
-    
-#game_core_v3(number)
+        break #конец игры выход из цикла    
